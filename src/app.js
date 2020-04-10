@@ -23,7 +23,7 @@ hbs.registerPartials(partialsPath)
 app.use(express.static(publicPath))
 
 // Force https on heroku
-app.use(herokuHttps)
+app.use(herokuHttps())
 
 // Static weather data
 const weather = {
