@@ -1,4 +1,5 @@
 const path = require('path')
+const herokuHttps = require('heroku-ssl-redirect')
 const express = require('express')
 const hbs = require('hbs')
 const { geocode }= require('./utils/geocode')
@@ -20,6 +21,9 @@ hbs.registerPartials(partialsPath)
 
 // Set static assets location
 app.use(express.static(publicPath))
+
+// Force https on heroku
+app.use(herokuHttps)
 
 // Static weather data
 const weather = {
